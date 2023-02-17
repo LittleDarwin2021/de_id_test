@@ -237,8 +237,7 @@ if uploaded_files:
         st.write("情報量の変化")
         column_list = df_anonymous.columns.tolist()
         column_list.remove("count")
-        st.write(column_list)
-        st.write(df2)
+        
         entropy_dict = {}
         for col in column_list:
             freq = pd.Series.value_counts(df2[col])
