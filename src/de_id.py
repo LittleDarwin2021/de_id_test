@@ -228,6 +228,10 @@ if uploaded_files:
     next_step = st.button("匿名加工を実行する")
     
     if next_step :
+        if "df_session_state" in st.session_state:
+            df2 = st.session_state["df_session_state"].copy()
+        else:
+            pass
         de_id = De_id(df2, unique_id, quasi_identifier, categorical, sensitive_attributes=None)
         anonymous = de_id.k_anonymize(k = k_value)
         df_anonymous = pd.DataFrame(anonymous)
